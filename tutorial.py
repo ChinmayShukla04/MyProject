@@ -74,10 +74,15 @@ with open(ANNOTATION_PATH + '\label_map.pbtxt', 'w') as f:
 
 """# 2. Create TF records"""
 
-import subprocess  
-command = f"python {SCRIPTS_PATH}/generate_tfrecord.py -x {IMAGE_PATH}/train -l {ANNOTATION_PATH}/label_map.pbtxt -o {ANNOTATION_PATH}/train.record" 
+import subprocess
+
+# Train record
+command = f"python {SCRIPTS_PATH}/generate_tfrecord.py -x {IMAGE_PATH}/train -l {ANNOTATION_PATH}/label_map.pbtxt -o {ANNOTATION_PATH}/train.record"
 subprocess.run(command, shell=True, check=True)
-!python {SCRIPTS_PATH + '/generate_tfrecord.py'} -x{IMAGE_PATH + '/test'} -l {ANNOTATION_PATH + '/label_map.pbtxt'} -o {ANNOTATION_PATH + '/test.record'}
+
+# Test record
+command = f"python {SCRIPTS_PATH}/generate_tfrecord.py -x {IMAGE_PATH}/test -l {ANNOTATION_PATH}/label_map.pbtxt -o {ANNOTATION_PATH}/test.record"
+subprocess.run(command, shell=True, check=True)
 
 """# 3. Download TF Models Pretrained Models from Tensorflow Model Zoo"""
 
