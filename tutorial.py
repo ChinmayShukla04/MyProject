@@ -86,7 +86,7 @@ subprocess.run(command, shell=True, check=True)
 
 """# 3. Download TF Models Pretrained Models from Tensorflow Model Zoo"""
 
-!cd Tensorflow && git clone https://github.com/tensorflow/models
+import subprocess  # Change directory and clone subprocess.run("git clone https://github.com/tensorflow/models", shell=True, check=True, cwd="Tensorflow")
 
 #wget.download('http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz')
 #!mv ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz {PRETRAINED_MODEL_PATH}
@@ -212,7 +212,8 @@ from matplotlib import pyplot as plt
 
 """# 3. Download TF Models Pretrained Models from Tensorflow Model Zoo"""
 
-!cd Tensorflow && git clone https://github.com/tensorflow/models
+import subprocess  # Change directory and clone 
+subprocess.run("git clone https://github.com/tensorflow/models", shell=True, check=True, cwd="Tensorflow")
 
 #wget.download('http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz')
 #!mv ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz {PRETRAINED_MODEL_PATH}
