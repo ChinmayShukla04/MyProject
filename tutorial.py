@@ -223,7 +223,11 @@ subprocess.run("git clone https://github.com/tensorflow/models", shell=True, che
 
 CUSTOM_MODEL_NAME = 'my_ssd_mobnet'
 
-!mkdir {'Tensorflow\workspace\models\\'+CUSTOM_MODEL_NAME}
+import os
+
+model_dir = os.path.join("Tensorflow", "workspace", "models", CUSTOM_MODEL_NAME)
+os.makedirs(model_dir, exist_ok=True)
+
 !cp {PRETRAINED_MODEL_PATH+'/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8/pipeline.config'} {MODEL_PATH+'/'+CUSTOM_MODEL_NAME}
 
 """# 5. Update Config For Transfer Learning"""
