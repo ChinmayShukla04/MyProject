@@ -1,0 +1,10 @@
+tensorflow==2.15.0
+opencv-python
+protobuf
+numpy
+streamlit
+pillow
+matplotlib
+pycocotools
+scipy
+wget
